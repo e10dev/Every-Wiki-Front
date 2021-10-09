@@ -2,7 +2,7 @@
   - [Development](#development)
 
 # liberty-engine-view
-View engine of LibertyEngine made with Vue.js / Nuxt.js.
+made with Vue.js / Nuxt.js.
 
 ## Development
 ``` bash
