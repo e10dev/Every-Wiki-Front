@@ -40,3 +40,5 @@ Event bus : 상위 - 하위 관계가 아닌 컴포넌트 간의 통신을 위�
        b-form-input placeholder="username"
 
 clear + test
+
+soyeon test
