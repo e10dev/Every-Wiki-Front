@@ -23,7 +23,7 @@ export default {
   async asyncData ({ params, req, res, error, store }) {
     store.commit('meta/clear')
     store.commit('meta/update', {
-      title: '최근 바뀜'
+      title: '최근게시물'
     })
     const resp = await request({
       method: 'get',

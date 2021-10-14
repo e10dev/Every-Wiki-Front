@@ -7,28 +7,35 @@ nav.liberty-navbar.navbar
           | {{ settings.data.wikiName }}
         nuxt-link.navbar-item(active-class="" to="/recent-changes")
           b-icon(icon="refresh")
-          span.navbar-text 최근문서
+          span.navbar-text 최근게시물
         nuxt-link.navbar-item(active-class="" to="/random")
           b-icon(icon="random")
-          span.navbar-text 랜덤문서
+          span.navbar-text 랜덤게시물
         b-dropdown
           a.navbar-item(slot="trigger")
-            b-icon(icon="gear")
-            span.navbar-text 도구
+            b-icon(icon="book")
+            span.navbar-text 게시판
+            b-icon.navbar-caret(icon="caret-down")
+          b-dropdown-item(has-link)
+            nuxt-link(:to="`/article/${encodeURIComponent('재학생 게시판')}`") 재학생 게시판
+          b-dropdown-item(has-link)
+            nuxt-link(:to="`/article/${encodeURIComponent('졸업생 게시판')}`") 졸업생 게시판
+        b-dropdown
+          a.navbar-item(slot="trigger")
+            b-icon(icon="upload")
+            span.navbar-text 사진업로드
             b-icon.navbar-caret(icon="caret-down")
           b-dropdown-item(has-link v-if="user.isAdmin")
             nuxt-link(to="/admin") 관리자 도구
           b-dropdown-item(has-link)
-            nuxt-link(to="/upload") 파일 업로드
+            nuxt-link(to="/upload") 사진 업로드
         b-dropdown
           a.navbar-item(slot="trigger")
-            b-icon(icon="book")
+            b-icon(icon="gear")
             span.navbar-text 도움말
             b-icon.navbar-caret(icon="caret-down")
           b-dropdown-item(has-link)
-            nuxt-link(:to="`/article/${encodeURIComponent('문법 도움말')}`") 문법 도움말
-          b-dropdown-item(has-link)
-            nuxt-link(:to="`/article/${encodeURIComponent('TeX 문법')}`") TeX 문법
+            nuxt-link(:to="`/article/${encodeURIComponent('이용 약관')}`") 이용약관
       .user-items
         nuxt-link.navbar-item(v-if="!user.isLoggedIn" to="/login" active-class="")
           b-icon(icon="sign-in")

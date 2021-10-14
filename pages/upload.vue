@@ -3,7 +3,7 @@
   .columns
     .column
       section.file-upload
-        h3.is-size-3 파일 선택
+        h3.is-size-3 사진 선택
         b-field
           // accept="image/jpeg, image/png, image/gif, image/x-icon" (buefy bug)
           b-upload(
@@ -14,25 +14,25 @@
               .content.has-text-centered
                 p
                   b-icon(icon="upload" size="is-large").is-size-4
-                div 파일을 선택하거나 드래그
+                div 사진을 선택하거나 드래그
                 div 최대 크기: 10 MiB
                 div 현재 png, jpg, gif, ico 파일만 지원합니다.
     .column(v-if="model.file")
       section.file-info
-        h3.is-size-3 파일 정보
+        h3.is-size-3 사진 정보
         img.file-preview(ref="img" v-if="dataUrl" :src="dataUrl")
         .file-orginal-name 원본 이름: {{ model.file.name }}
         .file-size {{ (model.file.size / 1024).toFixed(2) }} KiB
         .file-width-height {{ width }} × {{ height }}
   hr(v-if="model.file")
   section.file-description(v-if="model.file")
-    h3.is-size-3 파일 설명
+    h3.is-size-3 사진 설명
     b-field(
-      label="파일의 새 이름 (네임스페이스 제외)"
-      message="파일을 잘 설명하고 입력하기 쉬운 이름을 지어주세요. 확장자는 입력하지 않아도 됩니다."
+      label="사진의 새 이름 (네임스페이스 제외)"
+      message="사진을 잘 설명하고 입력하기 쉬운 이름을 지어주세요. 확장자는 입력하지 않아도 됩니다."
     )
       b-input(v-model="model.title")
-    b-field(label="파일 설명 (위키텍스트)")
+    b-field(label="사진 설명 (위키텍스트)")
       b-input(
         type="textarea"
         v-model="model.wikitext"
@@ -51,10 +51,10 @@ export default {
   async asyncData ({ params, req, res, error, store }) {
     store.commit('meta/clear')
     store.commit('meta/update', {
-      title: '파일 업로드'
+      title: '사진 업로드'
     })
     if (!store.state.user.isFileCreatable) {
-      return error({ message: '파일을 업로드하기 위한 권한이 없습니다.' })
+      return error({ message: '사진을 업로드하기 위한 권한이 없습니다.' })
     }
   },
   data () {
