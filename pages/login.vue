@@ -49,11 +49,15 @@ export default {
         setToken(token)
         location.replace('/')
       } catch (err) {
-        this.$toast.open({
-          duration: 3000,
-          message: '아이디와 비밀번호를 확인해 주세요.',
-          type: 'is-danger'
-        })
+        const errMsg = err.message;
+        alert(err, errMsg);
+        if (errMsg == 'User does not exist') {
+          this.$nuxt.$buefy.toast.open({
+            duration: 3000,
+            message: '아이디와 비밀번호를 확인해 주세요.',
+            type: 'is-danger'
+          })
+        }
       }
     }
   }
