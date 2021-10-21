@@ -1,7 +1,7 @@
-- [liberty-engine-view](#liberty-engine-view)
+- [Every-Wiki-Front](#Every-Wiki-Front)
   - [Development](#development)
 
-# liberty-engine-view
+# Every-Wiki-Front
 made with Vue.js / Nuxt.js.
 
 ## Development
