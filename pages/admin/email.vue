@@ -1,6 +1,8 @@
 <template lang="pug">
 .admin-email
   p 사용자에게 이메일을 보내기 위해 사용할 이메일 계정을 설정합니다.
+  b-field(label="service")
+    b-input(v-model="model.service")
   b-field(label="host")
     b-input(v-model="model.host")
   b-field(label="port")
@@ -43,7 +45,7 @@ export default {
   methods: {
     async submit () {
       if (!this.model.host || !Number(this.model.port) || !this.model.user || !this.model.password) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '모두 입력해 주세요.',
           type: 'is-danger'
@@ -55,6 +57,7 @@ export default {
           path: `settings/email`,
           method: 'put',
           body: {
+            service: this.model.service,
             host: this.model.host,
             port: Number(this.model.port),
             secure: this.model.secure || false,
@@ -62,7 +65,12 @@ export default {
             password: this.model.password
           }
         })
-        history.go(0)
+        await this.$buefy.toast.open({
+          duration: 3000,
+          message: '설정 완료!',
+          type: 'is-success'
+        })
+        await history.go(0)
       }
     }
   }

@@ -38,7 +38,7 @@ export default {
   methods: {
     async submit () {
       if (!this.model.username || !this.model.password || !this.model.passwordRetype || !this.model.email) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '항목을 모두 입력해 주세요.',
           type: 'is-warning'
@@ -46,7 +46,7 @@ export default {
         return
       }
       if (this.model.password.length < 6) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '비밀번호는 6자 이상 입력해야 합니다.',
           type: 'is-warning'
@@ -54,7 +54,7 @@ export default {
         return
       }
       if (this.model.password !== this.model.passwordRetype) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '비밀번호를 확인해 주세요.',
           type: 'is-warning'

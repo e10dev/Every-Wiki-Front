@@ -47,14 +47,32 @@ export default {
           body: { username: this.model.username, password: this.model.password }
         })
         setToken(token)
-        location.replace('/')
+        await location.replace('/')
+        await this.$buefy.toast.open({
+          duration: 3000,
+          message: '로그인 성공',
+          type: 'is-success'
+        })
       } catch (err) {
-        const errMsg = err.message;
-        alert(err, errMsg);
-        if (errMsg == 'User does not exist') {
-          this.$nuxt.$buefy.toast.open({
+        const errMsg = await err.response.data.message;
+        if (errMsg === 'User does not exist') {
+            await this.$buefy.toast.open({
             duration: 3000,
-            message: '아이디와 비밀번호를 확인해 주세요.',
+            message: '사용자 이름을 찾을 수 없습니다.',
+            type: 'is-danger'
+          })
+        }
+        if (errMsg === 'Password does not match') {
+            await this.$buefy.toast.open({
+            duration: 3000,
+            message: '비밀번호가 맞지 않습니다.',
+            type: 'is-danger'
+          })
+        }
+        if (errMsg === 'Email does not confirmed') {
+            await this.$buefy.toast.open({
+            duration: 3000,
+            message: '이메일 인증을 받아주세요.',
             type: 'is-danger'
           })
         }

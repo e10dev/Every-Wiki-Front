@@ -40,7 +40,7 @@ export default {
   methods: {
     async submitChangePassword () {
       if (!this.model.oldPassword || !this.model.newPassword || !this.model.newPasswordRetype) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '항목을 모두 입력해 주세요.',
           type: 'is-warning'
@@ -48,7 +48,7 @@ export default {
         return
       }
       if (this.model.newPassword.length < 6) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '비밀번호는 6자 이상 입력해야 합니다.',
           type: 'is-warning'
@@ -56,7 +56,7 @@ export default {
         return
       }
       if (this.model.newPassword !== this.model.newPasswordRetype) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '비밀번호를 확인해 주세요.',
           type: 'is-warning'
@@ -73,14 +73,14 @@ export default {
           }
         })
       } catch (err) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '비밀번호 변경에 실패했습니다.',
           type: 'is-danger'
         })
         return
       }
-      this.$toast.open({
+      this.$buefy.toast.open({
         duration: 3000,
         message: '비밀번호를 성공적으로 변경했습니다.',
         type: 'is-success'
