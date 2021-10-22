@@ -1,7 +1,7 @@
 <template lang="pug">
 .page.page-permission
   p
-    | 특정한 역할을 가진 사용자에게 이 문서에 관한 권한을 부여할 수 있습니다.
+    | 특정한 역할을 가진 사용자에게 이 게시물에 관한 권한을 부여할 수 있습니다.
     | 기본값으로 설정한 경우 네임스페이스별 설정에 따릅니다.
   b-table(:data="table")
     template(slot-scope="props")
@@ -48,7 +48,7 @@ export default {
     store.commit('meta/clear')
     const fullTitle = params.fullTitle
     store.commit('meta/update', {
-      title: `"${fullTitle}" 문서 권한 설정`
+      title: `"${fullTitle}" 게시물 권한 설정`
     })
     try {
       const article = await articleManager.getByFullTitle(fullTitle, {
@@ -63,7 +63,7 @@ export default {
         res
       })
       store.commit('meta/update', {
-        title: `"${article.fullTitle}" 문서 권한 설정`,
+        title: `"${article.fullTitle}" 게시물 권한 설정`,
         toolBox: {
           allowedActions: article.allowedActions,
           fullTitle: article.fullTitle,
@@ -114,7 +114,7 @@ export default {
         return error({ statusCode: 500 })
       }
       if (err.response.status === 404) {
-        return error({ statusCode: 404, message: '문서가 존재하지 않습니다.' })
+        return error({ statusCode: 404, message: '게시물이 존재하지 않습니다.' })
       }
       if (err.response.data.name === 'UnauthorizedError') {
         return error({ statusCode: 403, message: '권한이 없습니다.' })

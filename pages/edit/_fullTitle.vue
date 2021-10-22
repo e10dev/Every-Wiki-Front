@@ -1,7 +1,7 @@
 <template lang="pug">
 .page.page-edit
   b-notification(type="is-danger" v-if="!isEditable" :closable="false")
-    | 이 문서에 대한 편집 권한이 없습니다.
+    | 이 게시물에 대한 편집 권한이 없습니다.
   b-notification(type="is-warning" v-if="errorMessage" :closable="false")
     | {{ errorMessage }}
   b-notification(v-if="usingOldRev" :closable="false")
@@ -103,7 +103,7 @@ export default {
       }
       if (err.response.status === 404) {
         store.commit('meta/update', {
-          title: `"${fullTitle}" 문서 만들기`,
+          title: `"${fullTitle}" 게시물 만들기`,
           toolBox: null
         })
         return {
@@ -118,7 +118,7 @@ export default {
         }
       }
       if (err.response.data.name === 'UnauthorizedError') {
-        return error({ statusCode: 403, message: '이 문서를 읽을 권한이 없습니다.' })
+        return error({ statusCode: 403, message: '이 게시물을 읽을 권한이 없습니다.' })
       }
     }
   },

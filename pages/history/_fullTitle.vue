@@ -47,7 +47,7 @@ export default {
     store.commit('meta/clear')
     const fullTitle = params.fullTitle
     store.commit('meta/update', {
-      title: `"${fullTitle}" 편집 역사 보기`
+      title: `"${fullTitle}" 편집 기록 보기`
     })
     try {
       const article = await articleManager.getByFullTitle(fullTitle, {
@@ -61,7 +61,7 @@ export default {
         res
       })
       store.commit('meta/update', {
-        title: `"${article.fullTitle}" 편집 역사 보기`,
+        title: `"${article.fullTitle}" 편집 기록 보기`,
         toolBox: {
           allowedActions: article.allowedActions,
           fullTitle: article.fullTitle,
@@ -76,7 +76,7 @@ export default {
         return error({ statusCode: 500 })
       }
       if (err.response.status === 404) {
-        return error({ statusCode: 404, message: '문서가 존재하지 않습니다.' })
+        return error({ statusCode: 404, message: '게시물이 존재하지 않습니다.' })
       }
       if (err.response.data.name === 'UnauthorizedError') {
         return error({ statusCode: 403, message: '권한이 없습니다.' })

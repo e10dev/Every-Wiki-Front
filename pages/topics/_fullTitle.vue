@@ -5,7 +5,7 @@
       h3.title.topic-title
         nuxt-link(:to="`/discussion/${topic.id}`") {{ topic.title }}
       discussion-comment-card(:comment="topic.firstComment")
-  div(v-else) 진행중인 토의가 없습니다.
+  div(v-else) 의견이 없습니다.
   .add-topic-form
     h3.title 새 주제 만들기
     b-field(label="주제")
@@ -42,7 +42,7 @@ export default {
     store.commit('meta/clear')
     const fullTitle = params.fullTitle
     store.commit('meta/update', {
-      title: `"${fullTitle}" 문서에 관해 진행중인 토의`
+      title: `"${fullTitle}" 게시물에 관한 의견`
     })
     try {
       const article = await articleManager.getByFullTitle(fullTitle, {
@@ -56,7 +56,7 @@ export default {
         res
       })
       store.commit('meta/update', {
-        title: `"${article.fullTitle}" 문서에 관해 진행중인 토의`,
+        title: `"${article.fullTitle}" 게시물에 관한 의견`,
         toolBox: {
           allowedActions: article.allowedActions,
           fullTitle: article.fullTitle,

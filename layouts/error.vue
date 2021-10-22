@@ -2,7 +2,7 @@
 .page.page-error
   h2.error-messgae {{ error.message }}
   p(v-if="error.createArticleLink")
-    nuxt-link(:to="error.createArticleLink") 문서를 작성해
+    nuxt-link(:to="error.createArticleLink") 게시물을 작성해
     = " "
     | 보세요.
 </template>
@@ -30,3 +30,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.page.page-error {
+  p {
+    a {
+      color: #b73333;
+    }
+  }
+}
+</style>

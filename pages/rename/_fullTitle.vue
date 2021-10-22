@@ -1,14 +1,14 @@
 <template lang="pug">
 .page.page-rename
-  b-field(label="새 문서명 (이름공간 포함)")
+  b-field(label="새 게시물명 (이름공간 포함)")
     b-input(v-model.trim="model.newFullTitle")
   p(v-if="pending") ...
   p(v-else-if="newFullTitleIsAllowed") "{{ model.newFullTitle }}"로 변경 가능합니다.
-  p(v-else) "{{ model.newFullTitle }}" 문서가 이미 존재하거나 사용할 수 없습니다.
+  p(v-else) "{{ model.newFullTitle }}" 게시물이 이미 존재하거나 사용할 수 없습니다.
   b-field(label="변경 사유")
     b-input(v-model.trim="model.summary")
   .right-wrapper
-    button.button.is-primary(@click="submit") 문서명 변경
+    button.button.is-primary(@click="submit") 게시물명 변경
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
     store.commit('meta/clear')
     const fullTitle = params.fullTitle
     store.commit('meta/update', {
-      title: `"${fullTitle}" 문서명 변경`
+      title: `"${fullTitle}" 게시물명 변경`
     })
     try {
       const article = await articleManager.getByFullTitle(fullTitle, {
@@ -38,7 +38,7 @@ export default {
         res
       })
       store.commit('meta/update', {
-        title: `"${article.fullTitle}" 문서명 변경`,
+        title: `"${article.fullTitle}" 게시물명 변경`,
         toolBox: {
           allowedActions: article.allowedActions,
           fullTitle: article.fullTitle,
@@ -46,7 +46,7 @@ export default {
         }
       })
       if (!article.allowedActions.includes('rename')) {
-        return error({ statusCode: 403, message: '이 문서의 문서명을 변경할 권한이 없습니다.' })
+        return error({ statusCode: 403, message: '이 게시물의 게시물명을 변경할 권한이 없습니다.' })
       }
       return {
         article,
@@ -60,7 +60,7 @@ export default {
         return error({ statusCode: 500 })
       }
       if (err.response.status === 404) {
-        return error({ statusCode: 404, message: '문서가 존재하지 않습니다.' })
+        return error({ statusCode: 404, message: '게시물이 존재하지 않습니다.' })
       }
       if (err.response.data.name === 'UnauthorizedError') {
         return error({ statusCode: 403, message: '권한이 없습니다.' })
@@ -95,7 +95,7 @@ export default {
       if (!this.newFullTitleIsAllowed) {
         this.$toast.open({
           duration: 3000,
-          message: '해당 이름을 가진 문서가 이미 존재하거나 사용할 수 없습니다.',
+          message: '해당 이름을 가진 게시물이 이미 존재하거나 사용할 수 없습니다.',
           type: 'is-danger'
         })
       }
@@ -107,7 +107,7 @@ export default {
       this.$router.push(`/article/${encodeURIComponent(this.model.newFullTitle)}`)
       this.$toast.open({
         duration: 3000,
-        message: '문서명을 변경했습니다.',
+        message: '게시물명을 변경했습니다.',
         type: 'is-success'
       })
       this.$eventHub.$emit('reload-live-recent')

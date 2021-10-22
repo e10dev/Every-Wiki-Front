@@ -5,7 +5,7 @@
       b-table-column(label="이름") {{ props.row.sourceFullTitle }}
       b-table-column(label="삭제")
         button.button.is-danger(@click="deleteRedirection(props.row.sourceFullTitle)") 삭제
-    template(slot="empty") 이 문서로 가는 넘겨주기가 존재하지 않습니다.
+    template(slot="empty") 이 게시물로 가는 넘겨주기가 존재하지 않습니다.
   hr
   h3.is-size-3 새 넘겨주기 만들기
   b-field(label="넘겨줄 이름")
@@ -33,7 +33,7 @@ export default {
     store.commit('meta/clear')
     const fullTitle = params.fullTitle
     store.commit('meta/update', {
-      title: `"${fullTitle}" 문서로 넘겨주기`
+      title: `"${fullTitle}" 게시물로 넘겨주기`
     })
     try {
       const article = await articleManager.getByFullTitle(fullTitle, {
@@ -48,7 +48,7 @@ export default {
         res
       })
       store.commit('meta/update', {
-        title: `"${article.fullTitle}" 문서로 넘겨주기`,
+        title: `"${article.fullTitle}" 게시물로 넘겨주기`,
         toolBox: {
           allowedActions: article.allowedActions,
           fullTitle: article.fullTitle,
@@ -64,7 +64,7 @@ export default {
         return error({ statusCode: 500 })
       }
       if (err.response.status === 404) {
-        return error({ statusCode: 404, message: '문서가 존재하지 않습니다.' })
+        return error({ statusCode: 404, message: '게시물이 존재하지 않습니다.' })
       }
       if (err.response.data.name === 'UnauthorizedError') {
         return error({ statusCode: 403, message: '권한이 없습니다.' })
@@ -84,7 +84,7 @@ export default {
         if (err.response.data.name === 'ConflictError') {
           this.$toast.open({
             duration: 3000,
-            message: '해당 이름을 가진 문서나 넘겨주기가 이미 존재합니다.',
+            message: '해당 이름을 가진 게시물이나 넘겨주기가 이미 존재합니다.',
             type: 'is-danger'
           })
         } else {

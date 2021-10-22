@@ -4,16 +4,16 @@ nav.panel.live-recent
     .tabs.is-toggle.is-fullwidth
       ul
         li
-          a(:class="{ 'is-active': mode === 'ARTICLE' }" @click="mode = 'ARTICLE'; fetchLiveRecent()" role="button") 최근바뀜
+          a(:class="{ 'is-active': mode === 'ARTICLE' }" @click="mode = 'ARTICLE'; fetchLiveRecent()" role="button") 최근게시물
         li
-          a(:class="{ 'is-active': mode === 'DISCUSSION' }" @click="mode = 'DISCUSSION'; fetchLiveRecent()" role="button") 최근토의
+          a(:class="{ 'is-active': mode === 'DISCUSSION' }" @click="mode = 'DISCUSSION'; fetchLiveRecent()" role="button") 최근의견
   .live-recent-content
     nuxt-link.panel-block(v-for="item in items" :to="item.to" :key="item.key")
       span.live-recent-time [{{ item.timeString }}]&nbsp;
       span.live-recent-tag(v-if="item.isNew") [New]&nbsp;
       span.live-recent-title {{item.text}}
   .live-recent-footer.panel-block
-    nuxt-link.button.is-primary.is-small(to="/recent-changes" title="최근 바뀜") 더보기
+    nuxt-link.button.is-primary.is-small(to="/recent-changes" title="최근 게시물") 더보기
 </template>
 
 <script>

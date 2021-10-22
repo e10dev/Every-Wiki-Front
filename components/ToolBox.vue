@@ -24,14 +24,14 @@
         tag="li"
         :to="`/topics/${encodedFullTitle}`"
       )
-        a 토의&nbsp;
+        a 의견&nbsp;
           b-tag(v-if="numOpenDisucssions" rounded type="is-primary") {{ numOpenDisucssions }}
       nuxt-link(
         v-if="allowedActions.includes('read')"
         tag="li"
         :to="`/history/${encodedFullTitle}`"
       )
-        a 역사
+        a 기록
   b-dropdown(position="is-bottom-left")
     .button.dropdown-button(slot="trigger")
       b-icon(icon="caret-down")
@@ -40,9 +40,9 @@
     b-dropdown-item(:has-link="true")
       nuxt-link(:to="`/redirections/${encodedFullTitle}`") 넘겨주기
     b-dropdown-item(:has-link="true")
-      nuxt-link(v-if="allowedActions.includes('rename')" :to="`/rename/${encodedFullTitle}`") 문서명 변경
+      nuxt-link(v-if="allowedActions.includes('rename')" :to="`/rename/${encodedFullTitle}`") 게시물명 변경
     b-dropdown-item(v-if="allowedActions.includes('set-permission')" :has-link="true")
-      nuxt-link(:to="`/permission/${encodedFullTitle}`") 문서 권한 설정
+      nuxt-link(:to="`/permission/${encodedFullTitle}`") 게시물 권한 설정
     b-dropdown-item(v-if="allowedActions.includes('delete')" :has-link="true")
       nuxt-link.has-text-danger(:to="`/delete/${encodedFullTitle}`") 삭제
 </template>

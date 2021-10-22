@@ -17,9 +17,9 @@ nav.liberty-navbar.navbar
             span.navbar-text 게시판
             b-icon.navbar-caret(icon="caret-down")
           b-dropdown-item(has-link)
-            nuxt-link(:to="`/article/${encodeURIComponent('재학생 게시판')}`") 재학생 게시판
+            nuxt-link(:to="`/article/${encodeURIComponent('자유 게시판')}`") 자유 게시판
           b-dropdown-item(has-link)
-            nuxt-link(:to="`/article/${encodeURIComponent('졸업생 게시판')}`") 졸업생 게시판
+            nuxt-link(:to="`/article/${encodeURIComponent('학과별 게시판')}`") 학과별 게시판
         b-dropdown
           a.navbar-item(slot="trigger")
             b-icon(icon="upload")
@@ -31,11 +31,13 @@ nav.liberty-navbar.navbar
             nuxt-link(to="/upload") 사진 업로드
         b-dropdown
           a.navbar-item(slot="trigger")
-            b-icon(icon="gear")
+            b-icon(icon="graduation-cap")
             span.navbar-text 도움말
             b-icon.navbar-caret(icon="caret-down")
           b-dropdown-item(has-link)
-            nuxt-link(:to="`/article/${encodeURIComponent('이용 약관')}`") 이용약관
+            nuxt-link(:to="`/article/${encodeURIComponent('문법 도움말')}`") 문법 도움말
+          b-dropdown-item(has-link)
+            nuxt-link(:to="`/article/${encodeURIComponent('틀사용 도움말')}`") 틀사용 도움말
       .user-items
         nuxt-link.navbar-item(v-if="!user.isLoggedIn" to="/login" active-class="")
           b-icon(icon="sign-in")
