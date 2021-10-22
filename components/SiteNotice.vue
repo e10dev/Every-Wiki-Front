@@ -29,7 +29,8 @@ export default {
 @import '~assets/style-variables.scss';
 
 .site-notice {
-  background-color: $grey-lighter;
+  //background-color: $grey-lighter;
+  background-color: #f5ecc2;
   margin-bottom: 1rem !important;
   @include touch {
     margin-bottom: 0.5rem !important;

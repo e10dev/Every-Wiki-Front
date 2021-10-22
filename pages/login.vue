@@ -82,5 +82,10 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+.page.page-login {
+  p {
+    padding-top: 10px;
+  }
+}
 </style>
