@@ -48,7 +48,7 @@ export default {
         }
       })
       if (!targetUser) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '해당 사용자는 존재하지 않습니다.',
           type: 'is-danger'
@@ -60,7 +60,7 @@ export default {
     async submit () {
       const expiration = this.model.exp ? this.$moment(this.model.exp, 'YYYY-MM-DD HH:mm') : null
       if (expiration && !expiration.isValid()) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '날짜를 올바르게 입력해 주세요.',
           type: 'is-danger'
@@ -68,7 +68,7 @@ export default {
         return
       }
       if (expiration && !expiration.isAfter()) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '현재 이후의 시간을 입력해야 합니다.',
           type: 'is-danger'

@@ -45,7 +45,7 @@ export default {
     async search () {
       if (this.ip === this.model.ipToSearch) return
       if (!isIP(this.model.ipToSearch)) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '아이피 주소를 올바르게 입력해 주세요.',
           type: 'is-danger'

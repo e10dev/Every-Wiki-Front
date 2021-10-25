@@ -127,6 +127,9 @@ a.external {
       padding-left: 0;
       padding-right: 0;
     }
+    .box {
+      border-radius: 4px;
+    }
   }
   .liberty-navbar {
     position: fixed;
@@ -137,8 +140,8 @@ a.external {
     @include touch {
       padding: ($box-padding / 2);
     }
-    border-top-left-radius: $radius-large;
-    border-top-right-radius: $radius-large;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     border: 1px solid #e1e8ed;
     background-color: $background;
     .title-wrapper-row {
@@ -181,8 +184,8 @@ a.external {
       padding: ($box-padding / 2);
     }
     border: 1px solid #e1e8ed;
-    border-bottom-left-radius: $radius-large;
-    border-bottom-right-radius: $radius-large;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
     background-color: $background;
   }
 }

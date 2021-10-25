@@ -48,7 +48,7 @@ export default {
             if (this.$moment(article.updatedAt) < this.$moment().subtract(1, 'day')) {
               timeString = this.$moment(article.updatedAt).fromNow()
             } else {
-              timeString = this.$moment(article.updatedAt).format('HH[:]mm[:]ss')
+              timeString = this.$moment(article.updatedAt).format('HH[:]mm')
             }
             const isNew = article.createdAt === article.updatedAt
             return {
@@ -73,7 +73,7 @@ export default {
             if (this.$moment(topic.updatedAt) < this.$moment().subtract(1, 'day')) {
               timeString = this.$moment(topic.updatedAt).fromNow()
             } else {
-              timeString = this.$moment(topic.updatedAt).format('HH[:]mm[:]ss')
+              timeString = this.$moment(topic.updatedAt).format('HH[:]mm')
             }
             return {
               key: 't' + topic.id,
@@ -109,15 +109,22 @@ export default {
 .live-recent {
   width: 15rem;
   .live-recent-header {
-    background-color: $background;
+    background-color: white;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    .tabs.is-toggle.is-fullwidth { 
+      ul {
+        align-items: normal;
+      }
+    }
     a {
-      padding: 0.6rem;
+      padding: 0.5rem;
       border-bottom-right-radius: 0 !important;
       border-bottom-left-radius: 0 !important;
       border-bottom: 0 !important;
     }
     .is-active {
-      background-color: white;
+      background-color: $background;
       border-bottom: 2px solid $primary !important;
     }
   }
@@ -135,8 +142,8 @@ export default {
   .live-recent-footer {
     justify-content: flex-end;
     background-color: $background;
-    border-bottom-left-radius: $radius;
-    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 }
 </style>

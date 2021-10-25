@@ -103,7 +103,7 @@ export default {
   methods: {
     async submitNewRole () {
       if (!this.newRoleName) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '역할 이름을 입력해 주세요.',
           type: 'is-danger'
@@ -111,7 +111,7 @@ export default {
         return
       }
       if (this.newRoleName.length > 127) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '역할 이름이 너무 깁니다.',
           type: 'is-danger'
@@ -163,7 +163,7 @@ export default {
         method: 'put',
         body: { namespacePermissions: this.permissionTable }
       })
-      this.$toast.open({
+      this.$buefy.toast.open({
         duration: 3000,
         message: '완료되었습니다.',
         type: 'is-success'
@@ -179,7 +179,7 @@ export default {
         method: 'put',
         body: { specialPermissions }
       })
-      this.$toast.open({
+      this.$buefy.toast.open({
         duration: 3000,
         message: '완료되었습니다.',
         type: 'is-success'
@@ -191,7 +191,7 @@ export default {
         path: `roles/${this.roleId}`,
         method: 'DELETE'
       })
-      this.$toast.open({
+      this.$buefy.toast.open({
         duration: 3000,
         message: '완료되었습니다.',
         type: 'is-success'

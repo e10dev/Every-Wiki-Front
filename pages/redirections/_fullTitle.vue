@@ -82,7 +82,7 @@ export default {
         history.go(0)
       } catch (err) {
         if (err.response.data.name === 'ConflictError') {
-          this.$toast.open({
+          this.$buefy.toast.open({
             duration: 3000,
             message: '해당 이름을 가진 게시물이나 넘겨주기가 이미 존재합니다.',
             type: 'is-danger'

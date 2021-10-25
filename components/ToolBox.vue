@@ -82,6 +82,7 @@ export default {
 .tool-box {
   background: white;
   display: flex;
+  border-radius: 0.35rem;
   .tabs {
     margin-bottom: 0 !important;
     a {

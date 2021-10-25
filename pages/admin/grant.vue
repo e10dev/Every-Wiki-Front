@@ -56,7 +56,7 @@ export default {
         }
       })
       if (!targetUser) {
-        this.$toast.open({
+        this.$buefy.toast.open({
           duration: 3000,
           message: '해당 사용자는 존재하지 않습니다.',
           type: 'is-danger'
@@ -77,7 +77,7 @@ export default {
         path: `users/${this.targetUser.id}/roles`,
         body: { roleIds }
       })
-      this.$toast.open({
+      this.$buefy.toast.open({
         duration: 3000,
         message: '성공했습니다.',
         type: 'is-success'

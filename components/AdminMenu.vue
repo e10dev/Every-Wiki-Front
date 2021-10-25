@@ -11,6 +11,8 @@ aside.menu
     li
       nuxt-link(to="/admin/email") 이메일 설정
     li
+      nuxt-link(to="/admin/blockchain") 블록체인 설정
+    li
       nuxt-link(to="/admin/ip-block") 아이피 차단
     li
       nuxt-link(to="/admin/ip-unblock") 아이피 차단 해제
