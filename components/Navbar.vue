@@ -4,7 +4,7 @@ nav.liberty-navbar.navbar
     .navbar-menu.is-active
       .navbar-start
         nuxt-link.navbar-item.wikiName(active-class="" to="/")
-          | {{ settings.data.wikiName }}
+          
         nuxt-link.navbar-item(active-class="" to="/recent-changes")
           b-icon(icon="refresh")
           span.navbar-text 최근게시물
@@ -118,6 +118,9 @@ export default {
     }
     .navbar-text {
       display: none;
+    }
+    .navbar-item.wikiName {
+      height: 2rem !important;
     }
     .navbar-menu {
       flex: 1;
