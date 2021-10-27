@@ -24,13 +24,18 @@ module.exports = {
         href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css',
         integrity: 'sha384-WtUWHyk39lfUpZQVgokNfSKCJaKAeD6adgLduBLrKTMUuPzFhLtL23y1guFy6lZn',
         crossorigin: 'anonymous'
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon-32x32.png'
       }
     ]
   },
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#213c6a' },
   /*
   ** Build configuration
   */
