@@ -3,7 +3,7 @@ nav.liberty-navbar.navbar
   .container
     .navbar-menu.is-active
       .navbar-start
-        nuxt-link.navbar-item(active-class="" to="/")
+        nuxt-link.navbar-item.wikiName(active-class="" to="/")
           | {{ settings.data.wikiName }}
         nuxt-link.navbar-item(active-class="" to="/recent-changes")
           b-icon(icon="refresh")
@@ -182,6 +182,14 @@ export default {
       order: 3;
     }
   }
+
+  .navbar-item.wikiName {
+    float: left;
+    height: 2.6rem;
+    width: 4.6rem;
+    background: transparent url('~@/static/everywiki-logo.png') no-repeat scroll 50%/contain;
+  }
+
   .navbar-menu {
     box-shadow: none;
   }
