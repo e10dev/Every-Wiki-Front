@@ -76,6 +76,10 @@ export default {
 }
 </script>
 
-<style lang="sass">
-
+<style lang="scss">
+.page.page-signup {
+  p {
+    padding-top: 10px;
+  }
+}
 </style>

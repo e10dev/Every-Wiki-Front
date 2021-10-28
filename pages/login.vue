@@ -9,6 +9,12 @@
     | 계정이 없나요?
     = " "
     nuxt-link(to="/signup") 회원가입
+  p
+    | 아이디 혹은 비밀번호를 까먹으셨나요?
+    = " "
+    nuxt-link(to="/users/id/find") 아이디 찾기
+    span &nbsp;
+    nuxt-link(to="/users/password/sendmail") 비밀번호 초기화
 </template>
 
 <script>
@@ -86,6 +92,9 @@ export default {
 .page.page-login {
   p {
     padding-top: 10px;
+    span {
+      padding-left: 7px;
+    }
   }
 }
 </style>
