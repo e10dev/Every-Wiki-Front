@@ -29,15 +29,14 @@ nav.liberty-navbar.navbar
             nuxt-link(to="/admin") 관리자 도구
           b-dropdown-item(has-link)
             nuxt-link(to="/upload") 사진 업로드
-        b-dropdown
-          a.navbar-item(slot="trigger")
-            b-icon(icon="graduation-cap")
-            span.navbar-text 도움말
-            b-icon.navbar-caret(icon="caret-down")
-          b-dropdown-item(has-link)
-            nuxt-link(:to="`/article/${encodeURIComponent('문법 도움말')}`") 문법 도움말
-          b-dropdown-item(has-link)
-            nuxt-link(:to="`/article/${encodeURIComponent('틀사용 도움말')}`") 틀사용 도움말
+        nuxt-link.navbar-item(active-class="" :to="`/article/${encodeURIComponent('문법 도움말')}`")
+          b-icon(icon="graduation-cap")
+          span.navbar-text 도움말
+          //-   b-icon.navbar-caret(icon="caret-down")
+          //- b-dropdown-item(has-link)
+          //-   nuxt-link(:to="`/article/${encodeURIComponent('문법 도움말')}`") 문법 도움말
+          //- b-dropdown-item(has-link)
+          //-   nuxt-link(:to="`/article/${encodeURIComponent('틀사용 도움말')}`") 틀사용 도움말
       .user-items
         nuxt-link.navbar-item(v-if="!user.isLoggedIn" to="/login" active-class="")
           b-icon(icon="sign-in")
